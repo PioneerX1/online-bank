@@ -23,10 +23,13 @@ $(document).ready(function() {
     var inputName = $("#new-account-name").val();
     var inputBalance = $("#new-account-balance").val();
     var account = new BankAccount(inputName, inputBalance);
-    console.log("name is " + account.name + " and initial balance is " + account.balance);
 
-    //create new BankAccount object and append object.name to account list
+    $("ul#account-list").append("<li>"+"<span class='account-name'>"+account.name+"<span id='hidden-account'>"+account.balance+"</span>"+"</span>"+ "</li>");
+
+    //add click event listener to names on account list
+    $(".account-name").last().click(function() {
+      console.log('js callled');
+      $("#hidden-account").show();
+    });
   });
-  //add click event listener to names on account list
-
 });
